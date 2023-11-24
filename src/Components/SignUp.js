@@ -57,7 +57,7 @@ function Signup() {
 
   const Signup = (e) => {
     e.preventDefault();
-    if (!validateForm()) {
+    if (validateForm()) {
       const body = {
         username: username,
         email: email,
