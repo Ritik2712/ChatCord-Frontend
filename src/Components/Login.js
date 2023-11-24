@@ -34,7 +34,8 @@ const Login = ({ socket }) => {
         })
         .catch((err) => {
           console.log(err);
-          setSuccessMessage("Try Again");
+          var message = err?.response?.data?.msg ?? "Try Again";
+          setSuccessMessage(message);
         });
     }
   };

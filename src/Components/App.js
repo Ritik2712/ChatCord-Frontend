@@ -24,7 +24,6 @@ const Apps = ({ socket }) => {
     })
       .then(async (res) => {
         await setChats(res.data);
-        console.log(res.data);
         var correct = false;
         res.data.forEach((element, index) => {
           if (element._id === id) {
@@ -77,7 +76,6 @@ const Apps = ({ socket }) => {
       return;
     }
     e.preventDefault();
-    console.log(id);
     socket.emit("send", sms, id);
     setSms("");
     input.current.focus();
@@ -95,7 +93,6 @@ const Apps = ({ socket }) => {
       },
     })
       .then((res) => {
-        console.log(res.data);
         var newChats = chats;
         newChats.push(res.data);
         setChats(newChats);
@@ -115,9 +112,7 @@ const Apps = ({ socket }) => {
 
   const changeChat = (newChat, newIndex) => {
     var newChats = [...chats];
-    console.log(newChats[index]);
     newChats[index].messages = messages ?? [];
-    console.log(newChats, "newChats");
     setIndex(newIndex);
     setChats(newChats);
     setRoomName(newChat.name);

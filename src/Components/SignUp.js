@@ -50,7 +50,7 @@ function Signup() {
       setEmailError("");
       setUserNameError("");
       setPasswordError("");
-      setSuccessMessage("Signup successful!");
+      setSuccessMessage("Registering...");
       return true;
     }
   };
@@ -80,7 +80,8 @@ function Signup() {
         })
         .catch((err) => {
           console.log(err);
-          setSuccessMessage("Try Again");
+          var message = err?.response?.data?.msg ?? "Try Again";
+          setSuccessMessage(message);
         });
     }
   };

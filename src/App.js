@@ -6,7 +6,6 @@ import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
 function App() {
   const Socket = io("https://chatcord-backend-production.up.railway.app/");
-  console.log(Socket);
   return (
     <div className="App">
       <Routes>
