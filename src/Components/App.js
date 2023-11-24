@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -9,12 +10,10 @@ const Apps = ({ socket }) => {
   const [roomName, setRoomName] = useState("");
   const [index, setIndex] = useState(0);
   const [typing, setTyping] = useState(false);
-  const [dots, setDots] = useState("...");
   const input = useRef(null);
   const { id } = useParams();
   const token = localStorage.getItem("token");
   const apiUrl = process.env.REACT_APP_BACKEND;
-  var interval = null;
   const getChats = () => {
     axios({
       method: "GET",
@@ -172,7 +171,7 @@ const Apps = ({ socket }) => {
               </div>
             );
           })}
-          {typing ? <h6 className="typing">typing{dots}</h6> : null}
+          {typing ? <h6 className="typing">typing...</h6> : null}
         </div>
       </main>
       <div className="chat-form-container">
